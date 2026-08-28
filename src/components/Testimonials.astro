@@ -1,0 +1,115 @@
+---
+// 5 Adet Yorum Verisi (Kendi yorumlarınızla değiştirebilirsiniz)
+const reviews = [
+  {
+    name: "Şahin B.",
+    text: "Bir arkadaşımın tavsiyesi ile tanışmıştım Hüseyin Bey ile. O zaman 10 günlük bel ağrım vardı. Onun için gitmiştim. Bel fıtığı denmişti 10 yıl önce. Daralma olduğunu söyledi Hüseyin bey ve eski MR sonuçlarına baktığımda daralma olduğu yazıyordu. Ayrıca, o sıralar yaşadığım ve iç hastalıkları ve kalp doktorlarının herşey normal dediği ama benim sıkıntı çektiğim semptomları birebir anlattı bana. Onunla ilgili de tedavi uyguladı ve 1 buçuk senedir o şekilde bir semptom daha yaşamadım. Her tanıdığıma tavsiye ediyorum. Mutlaka tecrübe edilmeli. Çok teşekkür ediyorum Hüseyin Bey'e tekrar.",
+    rating: 5,
+    date: "7 ay önce"
+  },
+  {
+    name: "İsmail A.",
+    text: "Hüseyin hocamla 2 ay önce tanıştım ağır bir hasta getirdık hastamızdaki degısiklik sonrası bende geldim bulunmayan bir karın ağrım ve dizimde şişme vardı sadece Allah ilmîni artırsın fazla söze gerçekten gerek yok.",
+    rating: 5,
+    date: "5 ay önce"
+  },
+    {
+    name: "Gül G.",
+    text: "çok memnun kalıp tüm sevdiklerimi gitmesi için sürüklediğim yer, kendini seven deneyimlemeli :)",
+    rating: 5,
+    date: "5 ay önce"
+  },
+  {
+    name: "Zehra S.",
+    text: "1 yıl önce fizik tedaviyi yarıda bırakıp tavsiye üzerine irem kızımıza gittim. Şifayı veren Allah biz sadece vesileyiz cümlesi beni çok etkilemişti, sonrasında irem vesilesiyle daha çok hastalagım şifa buldu. Ardından kızlarımı, arkadaslarımı götürdüm ritim bozukluğundan policistik overa kadar şifalı elleriyle tedavi etti. Gönülden tavsiyemdir, artık biliyorum ki bir rahatsızlığım olduğu zaman irem zamanım gelmiştir diyip hemen randevumuzu alıyoruz🥰🥰",
+    rating: 5,
+    date: "4 ay önce"
+  },
+  {
+    name: "Serpil T.",
+    text: "Hüseyin hoca,Oğlumun protein kaçağını normal değerlere getirdi.İstanbul'dan Ankara'ya gitmeyi tekrar göze alıp,çözüm bulamadığımız sağlık sorunları için en kısa zamanda randevu alacağız inseallah.Herkese tavsiye ederim.Kisilik olarak da değer verdiğimiz değerli bir hocamizdir.Şifa, Rabbimizden.Vesilelere sarılalım inseallah...",
+    rating: 5,
+    date: "8 ay önce"
+  }
+];
+---
+
+<section class="py-20 bg-white overflow-hidden relative">
+  <!-- Dekoratif Arka Plan -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-light rounded-full opacity-50 blur-3xl"></div>
+  </div>
+
+  <!-- max-w-[1600px] ile 5 kartın sığması için alan genişletildi -->
+  <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-extrabold text-brand-dark sm:text-4xl">
+        Danışanlarımız Ne Diyor?
+      </h2>
+      <div class="mt-4 flex flex-col items-center justify-center space-y-2">
+        <p class="text-lg text-gray-500">
+          Google Haritalar'da bizi tercih edenlerin deneyimleri.
+        </p>
+        <div class="flex items-center gap-2 bg-brand-light px-4 py-2 rounded-full">
+          <div class="flex text-brand-gold">
+            ★★★★★
+          </div>
+          <span class="text-sm font-bold text-brand-dark">5.0 Puan (59+ Yorum)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- YENİ YAPI: 5 Sütunlu Responsive Izgara (Grid) Sistemi -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
+      {reviews.map((review) => (
+        <div class="bg-white border border-gray-100 rounded-2xl p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
+          <div class="flex items-center justify-between mb-5">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-brand-turquoise/10 flex items-center justify-center text-brand-turquoise font-bold text-base flex-shrink-0">
+                {review.name.charAt(0)}
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-brand-dark leading-tight">{review.name}</h3>
+                <p class="text-[11px] text-gray-400 mt-0.5">{review.date}</p>
+              </div>
+            </div>
+            <!-- Google 'G' İkonu -->
+            <svg class="w-5 h-5 text-gray-300 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+               <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+               <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+               <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+               <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+          </div>
+          
+          <div class="flex text-brand-gold text-xs mb-3">
+            {"★".repeat(review.rating)}
+          </div>
+          
+          <p class="text-gray-600 text-sm leading-relaxed flex-grow italic">
+            "{review.text}"
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Tüm Yorumları Gör Butonu -->
+    <div class="mt-12 flex justify-center">
+      <!-- LÜTFEN BURADAKİ HREF LİNKİNİ MANUVİTAL'İN GOOGLE HARİTALAR LİNKİ İLE DEĞİŞTİRİN -->
+      <a 
+        href="https://maps.google.com/?q=Be%C5%9Ftepe,+Z%C3%BCbeyde+Han%C4%B1m+Cd+56/16,+Yenimahalle/Ankara" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 text-brand-dark font-semibold rounded-full shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-300"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Google'daki Tüm Değerlendirmeleri Oku
+      </a>
+    </div>
+  </div>
+</section>
